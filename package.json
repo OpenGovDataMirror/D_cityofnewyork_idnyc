@@ -1,0 +1,77 @@
+{
+  "name": "idnyc",
+  "version": "2.1.13",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "webpack",
+    "prebuild": "yarn test && yarn roll-css",
+    "roll-css": "./node_modules/nyc-lib/css/roll-css.sh ./src/css/idnyc.theme.css ./src/css/idnyc.css",
+    "predeploy": "yarn build",
+    "deploy": "node deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cchendoitt/idnyc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cchendoitt/idnyc/issues"
+  },
+  "homepage": "https://github.com/cchendoitt/idnyc#readme",
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "nyc-lib": "^1.4.60",
+    "ol": "^6.5.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-jest": "^24.8.0",
+    "babel-loader": "^8.0.6",
+    "coveralls": "^3.0.2",
+    "dotenv": "^8.2.0",
+    "ghooks": "^2.0.4",
+    "jest": "^24.8.0",
+    "jest-canvas-mock": "^2.2.0",
+    "jest-fetch-mock": "^3.0.3",
+    "nyc-build-helper": "^0.0.40",
+    "postcss-clean": "^1.2.2",
+    "postcss-css-variables": "^0.18.0",
+    "postcss-import": "^14.0.2",
+    "webpack": "4.43.0",
+    "webpack-cli": "3.3.11"
+  },
+  "resolutions": {
+    "**/**/serialize-javascript": "^3.1.0",
+    "**/**/ssri": "^8.0.1",
+    "**/**/glob-parent": "^5.1.2",
+    "**/**/node-fetch": "^2.6.1",
+    "**/**/ws": "^7.4.6",
+    "**/**/postcss": "^8.2.10",
+    "**/**/json-schema": "^0.4.0",
+    "**/**/ansi-regex": "^5.0.1",
+    "**/**/ssh2": "^1.4.0",
+    "**/**/node-notifier": "^8.0.1"
+  },
+  "jest": {
+    "verbose": true,
+    "automock": false,
+    "testMatch": [
+      "**/__tests__/**/*.test.js"
+    ],
+    "setupFiles": [
+      "./__tests__/jest-setup.js"
+    ],
+    "transformIgnorePatterns": [],
+    "collectCoverage": true,
+    "coverageDirectory": "./coverage/",
+    "collectCoverageFrom": [
+      "src/js/**/*.js"
+    ]
+  }
+}
